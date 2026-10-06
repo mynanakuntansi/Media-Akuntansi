@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eduakunt SMK - Perangkat Pembelajaran Akuntansi Perusahaan Jasa</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>body{font-family:'Poppins',sans-serif}.pg{display:none}.pg.on{display:block;animation:in .4s}.nv.on{background:#1d4ed8;color:#fff}
+@keyframes in{from{opacity:0;transform:translateY(12px)}to{opacity:1}}
+@keyframes fl{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-14px) rotate(8deg)}}
+.fl{animation:fl 4s ease-in-out infinite}.cd{transition:.2s}.cd:hover{transform:translateY(-6px) rotate(-1deg)}
+.cf{position:fixed;top:-10px;width:10px;height:14px;z-index:99;pointer-events:none;animation:fall 2.5s linear forwards}
+@keyframes fall{to{transform:translateY(105vh) rotate(720deg);opacity:.8}}</style>
+</head>
+<body class="bg-gradient-to-b from-sky-50 to-indigo-50 min-h-screen text-slate-800">
+
+<!-- HEADER -->
+<header class="bg-white shadow sticky top-0 z-20">
+  <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+    <a href="#beranda" class="text-xl font-bold text-blue-700">📘 Eduakunt <span class="text-blue-400">SMK</span></a>
+    <div class="ml-auto mr-3 text-xs font-semibold bg-amber-100 text-amber-700 rounded-full px-3 py-1">⭐ <span id="xp">0</span> XP · <span id="lv"></span></div><button id="burger" class="md:hidden p-2 rounded border" aria-label="Menu">☰</button>
+    <nav id="menu" class="hidden md:flex gap-1 text-sm flex-col md:flex-row absolute md:static top-full left-0 right-0 bg-white p-3 md:p-0 shadow md:shadow-none">
+      <a class="nv px-3 py-2 rounded hover:bg-blue-50" href="#beranda">Beranda</a>
+      <a class="nv px-3 py-2 rounded hover:bg-blue-50" href="#perangkat">Perangkat Ajar (CP/ATP)</a>
+      <a class="nv px-3 py-2 rounded hover:bg-blue-50" href="#modul">Modul &amp; Materi</a>
+      <a class="nv px-3 py-2 rounded hover:bg-blue-50" href="#simulasi">Simulasi Jurnal</a>
+      <a class="nv px-3 py-2 rounded hover:bg-blue-50" href="#evaluasi">Evaluasi</a>
+      <a class="nv px-3 py-2 rounded hover:bg-blue-50" href="#unduhan">Pusat Unduhan</a>
+    </nav>
+  </div>
+  <div class="h-1.5 bg-blue-100"><div id="xpb" class="h-1.5 bg-gradient-to-r from-amber-400 to-pink-500 transition-all" style="width:0"></div></div>
+</header>
+
+<main class="max-w-6xl mx-auto px-4 py-6">
+
+<!-- BERANDA -->
+<section id="beranda" class="pg">
+  <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-blue-700 via-indigo-600 to-fuchsia-500 text-white p-8 md:p-14">
+    <span class="fl absolute top-6 right-8 text-5xl md:text-7xl">💰</span>
+    <span class="fl absolute bottom-6 right-1/3 text-4xl" style="animation-delay:1s">📈</span>
+    <span class="fl absolute top-1/2 right-6 text-4xl hidden md:block" style="animation-delay:2s">🧾</span>
+    <p class="inline-block bg-white/20 rounded-full px-4 py-1 text-sm">🚀 Kurikulum Merdeka · Akuntansi Perusahaan Jasa</p>
+    <h1 class="mt-4 text-3xl md:text-5xl font-extrabold leading-tight">Halo, Calon Akuntan Hebat! 👋<br>Yuk, Taklukkan Siklus Akuntansi!</h1>
+    <p class="mt-4 max-w-2xl text-blue-50">Belajar sambil bermain: kumpulkan XP, naik level, dan buktikan kamu jago mencatat transaksi.</p>
+    <p id="qt" class="mt-4 italic text-amber-200 min-h-[3rem]"></p>
+    <div class="mt-6 flex flex-wrap gap-3">
+      <a href="#modul" class="bg-amber-400 text-slate-900 font-bold px-7 py-3 rounded-full shadow-lg hover:scale-105 transition">Mulai Belajar 🚀</a>
+      <a href="#evaluasi" class="bg-white/20 border border-white/40 px-7 py-3 rounded-full hover:bg-white/30">Tantang Kuis 🎯</a>
+    </div>
+  </div>
+  <div class="grid sm:grid-cols-3 gap-3 mt-4 text-sm font-semibold text-center">
+    <div class="rounded-2xl bg-white shadow p-3">📖 Baca bab <span class="text-amber-600">+10 XP</span></div>
+    <div class="rounded-2xl bg-white shadow p-3">🧮 Jurnal seimbang <span class="text-amber-600">+20 XP</span></div>
+    <div class="rounded-2xl bg-white shadow p-3">🎯 Jawaban benar <span class="text-amber-600">+10 XP</span></div>
+  </div>
+
+  <h2 class="text-2xl font-bold mt-10 mb-4 text-blue-800">🔄 Petualangan Siklus Akuntansi</h2>
+  <div id="siklus" class="grid grid-cols-2 md:grid-cols-4 gap-3"></div>
+
+  <h2 class="text-2xl font-bold mt-10 mb-4 text-blue-800">Fitur Utama</h2>
+  <div class="grid md:grid-cols-3 gap-4">
+    <a href="#modul" class="cd bg-white p-5 rounded-2xl shadow-md hover:shadow-xl border-b-4 border-blue-500"><div class="text-3xl">📚</div><h3 class="font-semibold mt-2">Modul &amp; Materi</h3><p class="text-sm text-slate-600">Enam bab materi dari bukti transaksi sampai jurnal penutup.</p></a>
+    <a href="#simulasi" class="cd bg-white p-5 rounded-2xl shadow-md hover:shadow-xl border-b-4 border-blue-500"><div class="text-3xl">🧮</div><h3 class="font-semibold mt-2">Simulasi Jurnal</h3><p class="text-sm text-slate-600">Latihan jurnal umum dengan pengecekan balance otomatis.</p></a>
+    <a href="#evaluasi" class="cd bg-white p-5 rounded-2xl shadow-md hover:shadow-xl border-b-4 border-blue-500"><div class="text-3xl">📝</div><h3 class="font-semibold mt-2">Kuis Interaktif</h3><p class="text-sm text-slate-600">Lima soal dengan umpan balik instan dan skor otomatis.</p></a>
+  </div>
+</section>
+
+<!-- PERANGKAT AJAR -->
+<section id="perangkat" class="pg">
+  <h2 class="text-2xl font-bold text-blue-800">Perangkat Ajar</h2>
+  <h3 class="text-lg font-semibold mt-6 mb-2">Pemetaan Elemen &amp; Capaian Pembelajaran (CP)</h3>
+  <div class="overflow-x-auto bg-white rounded-xl shadow">
+    <table class="w-full text-sm">
+      <thead class="bg-blue-700 text-white"><tr><th class="p-3 text-left">Elemen</th><th class="p-3 text-left">Capaian Pembelajaran</th></tr></thead>
+      <tbody id="cp" class="divide-y"></tbody>
+    </table>
+  </div>
+  <h3 class="text-lg font-semibold mt-8 mb-2">Alur Tujuan Pembelajaran (ATP) – Kelas XI SMK Akuntansi</h3>
+  <ol id="atp" class="space-y-3"></ol>
+</section>
+
+<!-- MODUL -->
+<section id="modul" class="pg">
+  <div class="md:flex gap-6">
+    <aside class="md:w-72 shrink-0 mb-4 md:mb-0">
+      <div class="bg-white rounded-xl shadow p-3 md:sticky md:top-20">
+        <p class="font-semibold text-blue-800 px-2 mb-2">Daftar Bab</p>
+        <div id="bab" class="flex md:flex-col gap-1 overflow-x-auto"></div>
+      </div>
+    </aside>
+    <article id="isi" class="flex-1 bg-white rounded-xl shadow p-6 min-w-0"></article>
+  </div>
+</section>
+
+<!-- SIMULASI -->
+<section id="simulasi" class="pg">
+  <h2 class="text-2xl font-bold text-blue-800">🧮 Simulasi Jurnal Umum</h2><p class="text-sm text-slate-600">Buat jurnal seimbang dan raih +20 XP!</p>
+  <div class="bg-blue-50 border border-blue-200 rounded-xl p-4 mt-3 text-sm">
+    <b>Transaksi latihan:</b> Pada 1 Oktober, Tuan Rudi menyetor modal tunai Rp10.000.000 dan membeli peralatan secara tunai Rp3.000.000. Catat ke jurnal umum, lalu periksa keseimbangannya.
+  </div>
+  <div class="bg-white rounded-xl shadow mt-4 p-4 overflow-x-auto">
+    <table class="w-full text-sm min-w-[560px]">
+      <thead><tr class="text-left text-slate-500"><th class="p-2">Nama Akun</th><th class="p-2 w-40">Debet (Rp)</th><th class="p-2 w-40">Kredit (Rp)</th><th class="w-10"></th></tr></thead>
+      <tbody id="jr"></tbody>
+      <tfoot><tr class="font-semibold border-t"><td class="p-2 text-right">Total</td><td class="p-2" id="td">0</td><td class="p-2" id="tk">0</td><td></td></tr></tfoot>
+    </table>
+    <div class="flex flex-wrap gap-2 mt-3 items-center">
+      <button id="add" class="px-4 py-2 rounded bg-blue-600 text-white hover:bg-blue-700">+ Tambah Baris</button>
+      <button id="rst" class="px-4 py-2 rounded border hover:bg-slate-50">Reset</button>
+      <span id="st" class="ml-auto font-semibold px-3 py-2 rounded"></span>
+    </div>
+  </div>
+  <p class="text-xs text-slate-500 mt-2">Catatan: status "Seimbang" hanya memeriksa total Debet = Kredit, belum menilai ketepatan akun.</p>
+</section>
+
+<!-- EVALUASI -->
+<section id="evaluasi" class="pg">
+  <h2 class="text-2xl font-bold text-blue-800">🎯 Kuis Tantangan Pencatatan</h2><p class="text-sm text-slate-600">Tiap jawaban benar +10 XP. Skor ≥80 dapat konfeti!</p>
+  <div id="kuis" class="space-y-4 mt-4"></div>
+  <div id="skor" class="hidden mt-6 bg-gradient-to-r from-blue-600 to-fuchsia-500 text-white rounded-2xl p-6 text-center">
+    <p class="text-sm">Skor Anda</p><p id="sk" class="text-5xl font-bold"></p><p id="skm" class="mt-1"></p>
+    <button onclick="buatKuis()" class="mt-4 bg-white text-blue-700 px-4 py-2 rounded font-semibold">Ulangi Kuis</button>
+  </div>
+</section>
+
+<!-- UNDUHAN -->
+<section id="unduhan" class="pg">
+  <h2 class="text-2xl font-bold text-blue-800">Pusat Unduhan</h2>
+  <div id="dl" class="grid md:grid-cols-3 gap-4 mt-4"></div>
+  <p class="text-xs text-slate-500 mt-4">Berkas contoh dibuat otomatis oleh browser. Ganti dengan berkas PDF Anda lewat atribut <code>href</code> (lihat penjelasan).</p>
+</section>
+</main>
+
+<footer class="text-center text-sm text-slate-500 py-6">© 2026 Eduakunt SMK · Kurikulum Merdeka · Semangat belajar! 🌟</footer>
+
+<script>
+const $=s=>document.querySelector(s);
+const rp=n=>'Rp'+Number(n||0).toLocaleString('id-ID');
+let XP=0;try{XP=+localStorage.getItem('xp')||0}catch(e){}
+const DONE=new Set(),LV=['Pemula','Pencatat Handal','Analis Muda','Akuntan Hebat','Legenda Akuntansi'];
+function xpUI(){const l=Math.min(Math.floor(XP/50),4);$('#xp').textContent=XP;$('#lv').textContent='Lv.'+(l+1)+' '+LV[l];$('#xpb').style.width=(l==4?100:XP%50*2)+'%'}
+function gain(n,k){if(k){if(DONE.has(k))return;DONE.add(k)}XP+=n;try{localStorage.setItem('xp',XP)}catch(e){}xpUI();toast('+'+n+' XP ⭐')}
+function toast(m){const t=document.createElement('div');t.textContent=m;t.className='fixed bottom-6 left-1/2 -translate-x-1/2 bg-slate-900 text-white px-5 py-2 rounded-full shadow-lg z-50 text-sm';document.body.appendChild(t);setTimeout(()=>t.remove(),1800)}
+function confetti(){const c=['#3b82f6','#f59e0b','#ec4899','#10b981','#8b5cf6'];for(let i=0;i<60;i++){const e=document.createElement('i');e.className='cf';e.style.left=Math.random()*100+'vw';e.style.background=c[i%5];e.style.animationDelay=Math.random()*.6+'s';document.body.appendChild(e);setTimeout(()=>e.remove(),3300)}}
+const Q=['"Setiap jurnal yang kamu catat adalah langkah menuju akuntan hebat." 💪','"Debet dan kredit itu seperti timbangan: harus seimbang!" ⚖️','"Salah itu wajar. Dari situlah kamu belajar!" 🌱','"Akuntan adalah bahasa bisnis. Kamu sedang belajar bahasanya!" 🌍'];
+let qn=0;function qr(){$('#qt').textContent=Q[qn++%Q.length]}qr();setInterval(qr,5000);
+
+/* ---------- Navigasi ---------- */
+function route(){
+  const h=(location.hash||'#beranda').slice(1);
+  document.querySelectorAll('.pg').forEach(p=>p.classList.toggle('on',p.id===h));
+  document.querySelectorAll('.nv').forEach(a=>a.classList.toggle('on',a.getAttribute('href')==='#'+h));
+  $('#menu').classList.add('hidden'); $('#menu').classList.remove('flex'); window.scrollTo(0,0);
+}
+addEventListener('hashchange',route);
+$('#burger').onclick=()=>{$('#menu').classList.toggle('hidden');$('#menu').classList.toggle('flex')};
+
+/* ---------- Beranda: siklus ---------- */
+['Bukti Transaksi','Jurnal Umum','Buku Besar','Neraca Saldo','Jurnal Penyesuaian','Kertas Kerja','Laporan Keuangan','Jurnal Penutup'].forEach((t,i)=>{
+  $('#siklus').insertAdjacentHTML('beforeend',`<div class="cd rounded-2xl bg-gradient-to-br ${['from-blue-500 to-cyan-400','from-indigo-500 to-blue-400','from-emerald-500 to-teal-400','from-amber-500 to-orange-400'][i%4]} text-white p-4 text-center shadow-md"><div class="text-3xl">${['🧾','📒','📚','⚖️','🛠️','📋','📊','🔒'][i]}</div><p class="text-xs opacity-80 mt-1">Langkah ${i+1}</p><p class="text-sm font-semibold">${t}</p></div>`);
+});
+
+/* ---------- Perangkat ajar ---------- */
+[['Konsep dasar akuntansi','Peserta didik memahami prinsip, persamaan dasar akuntansi, dan karakteristik perusahaan jasa.'],
+ ['Pencatatan transaksi','Peserta didik mampu menganalisis bukti transaksi dan mencatatnya ke jurnal umum serta buku besar.'],
+ ['Penyesuaian & laporan keuangan','Peserta didik mampu menyusun jurnal penyesuaian, kertas kerja, dan laporan keuangan perusahaan jasa.'],
+ ['Penutupan siklus','Peserta didik mampu menyusun jurnal penutup dan neraca saldo setelah penutupan.']]
+.forEach(r=>$('#cp').insertAdjacentHTML('beforeend',`<tr><td class="p-3 font-medium align-top">${r[0]}</td><td class="p-3">${r[1]}</td></tr>`));
+[['Menganalisis karakteristik perusahaan jasa dan bukti transaksi','2 JP'],
+ ['Mencatat transaksi ke jurnal umum','6 JP'],
+ ['Memposting ke buku besar dan menyusun neraca saldo','6 JP'],
+ ['Menyusun jurnal penyesuaian dan kertas kerja','8 JP'],
+ ['Menyusun laporan keuangan','6 JP'],
+ ['Menyusun jurnal penutup dan neraca saldo setelah penutupan','4 JP']]
+.forEach((a,i)=>$('#atp').insertAdjacentHTML('beforeend',`<li class="bg-white rounded-xl shadow p-4 flex gap-3 items-center"><span class="w-9 h-9 shrink-0 rounded-full bg-blue-600 text-white flex items-center justify-center font-bold">${i+1}</span><span class="flex-1">${a[0]}</span><span class="text-xs bg-blue-100 text-blue-700 px-2 py-1 rounded">${a[1]}</span></li>`));
+
+/* ---------- Modul ---------- */
+const BAB=[
+['Karakteristik Perusahaan Jasa & Bukti Transaksi',['Perusahaan jasa menjual layanan (bukan barang), sehingga tidak memiliki persediaan barang dagang. Contoh: salon, bengkel, kantor konsultan, laundry.','<b>Bukti transaksi:</b> faktur (penjualan kredit), kuitansi (penerimaan/pembayaran tunai), nota kontan, bukti kas masuk/keluar, memo internal.','<b>Persamaan dasar:</b> Aset = Liabilitas + Ekuitas.']],
+['Pencatatan Transaksi ke Jurnal Umum',['Jurnal umum mencatat transaksi secara kronologis: tanggal, nama akun, debet, kredit, dan keterangan.','Aturan: Aset &amp; Beban bertambah di Debet; Liabilitas, Ekuitas, &amp; Pendapatan bertambah di Kredit.','Contoh: Menerima pendapatan jasa tunai Rp2.000.000 → Debet Kas, Kredit Pendapatan Jasa.']],
+['Posting ke Buku Besar & Neraca Saldo',['Posting memindahkan saldo jurnal ke akun buku besar sesuai nama akun.','Neraca saldo mendaftar seluruh saldo akun; total Debet harus sama dengan total Kredit.','Jika tidak seimbang, periksa salah posting, salah hitung saldo, atau akun yang terlewat.']],
+['Jurnal Penyesuaian (AJP) & Kertas Kerja',['AJP dibuat di akhir periode agar pendapatan dan beban tercatat pada periode yang tepat.','Contoh: perlengkapan terpakai, beban dibayar di muka, beban yang masih harus dibayar, penyusutan peralatan.','Kertas kerja memuat neraca saldo, penyesuaian, neraca saldo disesuaikan, laba rugi, dan neraca.']],
+['Laporan Keuangan',['<b>Laporan Laba Rugi:</b> Pendapatan − Beban = Laba/Rugi.','<b>Laporan Perubahan Ekuitas:</b> Modal awal + Laba − Prive = Modal akhir.','<b>Laporan Posisi Keuangan:</b> menyajikan Aset, Liabilitas, dan Ekuitas pada tanggal tertentu.']],
+['Jurnal Penutup & Neraca Saldo Setelah Penutupan',['Akun nominal (pendapatan, beban, prive) ditutup agar saldo periode berikutnya mulai dari nol.','Urutan: tutup pendapatan ke Ikhtisar Laba Rugi → tutup beban → tutup Ikhtisar Laba Rugi ke Modal → tutup Prive ke Modal.','Neraca saldo setelah penutupan hanya berisi akun riil (aset, liabilitas, modal).']]];
+function bab(i,q){if(!q)gain(10,'bab'+i);
+  $('#isi').innerHTML=`<p class="text-sm text-blue-600 font-semibold">Bab ${i+1}</p><h2 class="text-2xl font-bold mb-4">${BAB[i][0]}</h2>`+BAB[i][1].map(p=>`<p class="mb-3 leading-relaxed">${p}</p>`).join('')+
+  `<div class="flex justify-between mt-6">${i>0?`<button onclick="bab(${i-1})" class="px-4 py-2 border rounded">← Sebelumnya</button>`:'<span></span>'}${i<5?`<button onclick="bab(${i+1})" class="px-4 py-2 bg-blue-600 text-white rounded">Berikutnya →</button>`:''}</div>`;
+  document.querySelectorAll('#bab button').forEach((b,j)=>b.className=`text-left text-sm px-3 py-2 rounded whitespace-nowrap md:whitespace-normal ${j===i?'bg-blue-600 text-white':'hover:bg-blue-50'}`);
+}
+BAB.forEach((b,i)=>{const e=document.createElement('button');e.textContent=`Bab ${i+1}: ${b[0]}`;e.onclick=()=>bab(i);$('#bab').appendChild(e)});
+bab(0,1);
+
+/* ---------- Simulasi jurnal ---------- */
+const AKUN=['Kas','Piutang Usaha','Perlengkapan','Peralatan','Utang Usaha','Modal','Prive','Pendapatan Jasa','Beban Gaji','Beban Listrik','Beban Sewa'];
+function baris(){
+  const tr=document.createElement('tr');tr.className='border-t';
+  tr.innerHTML=`<td class="p-2"><select class="w-full border rounded p-2"><option value="">-- Pilih akun --</option>${AKUN.map(a=>`<option>${a}</option>`).join('')}</select></td>
+  <td class="p-2"><input type="number" min="0" class="d w-full border rounded p-2" placeholder="0"></td>
+  <td class="p-2"><input type="number" min="0" class="k w-full border rounded p-2" placeholder="0"></td>
+  <td class="p-2"><button class="text-red-500" title="Hapus">✕</button></td>`;
+  tr.querySelectorAll('input').forEach(i=>i.oninput=hitung);
+  tr.querySelector('button').onclick=()=>{tr.remove();hitung()};
+  $('#jr').appendChild(tr);
+}
+function hitung(){
+  let d=0,k=0;
+  document.querySelectorAll('#jr .d').forEach(i=>d+=+i.value||0);
+  document.querySelectorAll('#jr .k').forEach(i=>k+=+i.value||0);
+  $('#td').textContent=rp(d);$('#tk').textContent=rp(k);
+  const s=$('#st');
+  if(!d&&!k){s.textContent='Belum ada data';s.className='ml-auto font-semibold px-3 py-2 rounded bg-slate-100 text-slate-600'}
+  else if(d===k){if(!DONE.has('jr'))confetti();gain(20,'jr');s.textContent='🎉 Seimbang (Balance)! Mantap!';s.className='ml-auto font-semibold px-3 py-2 rounded bg-green-100 text-green-700'}
+  else{s.textContent='🤔 Belum seimbang, selisih '+rp(Math.abs(d-k))+'. Semangat!';s.className='ml-auto font-semibold px-3 py-2 rounded bg-red-100 text-red-700'}
+}
+function resetJr(){$('#jr').innerHTML='';for(let i=0;i<4;i++)baris();hitung()}
+$('#add').onclick=()=>baris();$('#rst').onclick=resetJr;resetJr();
+
+/* ---------- Kuis ---------- */
+const SOAL=[
+['Perusahaan membeli peralatan secara tunai Rp5.000.000. Jurnal yang benar adalah...',['Debet Peralatan, Kredit Kas','Debet Kas, Kredit Peralatan','Debet Peralatan, Kredit Modal','Debet Beban Peralatan, Kredit Kas'],0],
+['Perusahaan menerima pendapatan jasa secara tunai. Akun yang di-debet adalah...',['Pendapatan Jasa','Kas','Piutang Usaha','Modal'],1],
+['Bukti transaksi untuk pembayaran/penerimaan uang tunai adalah...',['Faktur','Memo','Kuitansi','Rekening koran'],2],
+['Membayar gaji karyawan secara tunai dicatat dengan...',['Debet Kas, Kredit Beban Gaji','Debet Beban Gaji, Kredit Kas','Debet Utang Usaha, Kredit Kas','Debet Modal, Kredit Kas'],1],
+['Pemilik mengambil kas untuk keperluan pribadi dicatat dengan...',['Debet Prive, Kredit Kas','Debet Kas, Kredit Prive','Debet Beban, Kredit Kas','Debet Modal, Kredit Prive'],0]];
+let jawab=0,benar=0;
+function buatKuis(){
+  jawab=0;benar=0;$('#skor').classList.add('hidden');$('#kuis').innerHTML='';
+  SOAL.forEach((s,qi)=>{
+    const c=document.createElement('div');c.className='bg-white rounded-xl shadow p-5';
+    c.innerHTML=`<p class="font-semibold mb-3">${qi+1}. ${s[0]}</p><div class="space-y-2">${s[1].map((o,oi)=>`<button data-o="${oi}" class="opt block w-full text-left border rounded-lg px-4 py-2 hover:bg-blue-50">${String.fromCharCode(65+oi)}. ${o}</button>`).join('')}</div><p class="fb text-sm mt-3 font-medium"></p>`;
+    c.querySelectorAll('.opt').forEach(b=>b.onclick=()=>{
+      const pil=+b.dataset.o;
+      c.querySelectorAll('.opt').forEach(x=>{x.disabled=true;x.classList.remove('hover:bg-blue-50')});
+      c.querySelectorAll('.opt')[s[2]].classList.add('bg-green-100','border-green-500');
+      const f=c.querySelector('.fb');
+      if(pil===s[2]){benar++;gain(10);f.textContent=['✔ Benar! Keren! 🔥','✔ Mantap, pertahankan! 💪','✔ Tepat sekali! 🌟'][qi%3];f.className='fb text-sm mt-3 font-medium text-green-700'}
+      else{b.classList.add('bg-red-100','border-red-500');f.textContent='💡 Hampir! Jawaban benar: '+String.fromCharCode(65+s[2])+'.';f.className='fb text-sm mt-3 font-medium text-red-700'}
+      if(++jawab===SOAL.length){const n=benar*100/SOAL.length;$('#sk').textContent=n;$('#skm').textContent=`${benar} dari ${SOAL.length} soal benar`+(n>=75?' · Tuntas 🎉 Hebat sekali!':' · Jangan menyerah, coba lagi ya! 💪');$('#skor').classList.remove('hidden');if(n>=80){confetti();gain(30,'top')}}
+    });
+    $('#kuis').appendChild(c);
+  });
+}
+buatKuis();
+
+/* ---------- Unduhan ---------- */
+const FILES=[['Modul Ajar','PDF','Modul Ajar Akuntansi Perusahaan Jasa\n\n(Ganti berkas ini dengan modul ajar PDF Anda.)'],
+['LKPD','PDF','LKPD Jurnal Umum\n\nNama: ........\nKelas: ........\n\nLatihan: catat transaksi berikut ke jurnal umum...'],
+['Lembar Soal','PDF','Lembar Soal Evaluasi\n\n1. ...\n2. ...']];
+FILES.forEach(f=>{
+  const d=document.createElement('div');d.className='bg-white rounded-xl shadow p-5';
+  d.innerHTML=`<div class="text-3xl">📄</div><h3 class="font-semibold mt-2">${f[0]}</h3><p class="text-xs text-slate-500">Format ${f[1]}</p><a class="inline-block mt-3 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700 text-sm cursor-pointer">⬇ Unduh</a>`;
+  d.querySelector('a').onclick=()=>{
+    const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([f[2]],{type:'text/plain'}));
+    a.download=f[0].replace(/ /g,'_')+'.txt';a.click();
+  };
+  $('#dl').appendChild(d);
+});
+
+xpUI();route();
+</script>
+</body>
+</html>
